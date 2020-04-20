@@ -16,7 +16,7 @@ jobs:
           NODE_ENV: "production"
     steps:
       - attach_workspace:
-          at: ~/dist
+          at: .
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/dist/.npmrc
@@ -71,7 +71,7 @@ jobs:
           paths:
               - dist
       - persist_to_workspace:
-          root: ~/dist
+          root: .
           paths: .
 
 

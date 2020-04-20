@@ -71,6 +71,9 @@ jobs:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
               - dist
+      - persist_to_workspace:
+          root: ~/dist
+          paths: .
 
 
 ## WORKFLOWS ##

@@ -1,0 +1,29 @@
+{
+  "name": "tmc-component-library",
+  "version": "1.0.0",
+  "description": "component library",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ty-mcfarland/component-library.git"
+  },
+  "author": "Ty McFarland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ty-mcfarland/component-library/issues"
+  },
+  "homepage": "https://github.com/ty-mcfarland/component-library#readme",
+  "devDependencies": {
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.2.0",
+    "ts-loader": "^7.0.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-config-utils": "^2.3.1",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

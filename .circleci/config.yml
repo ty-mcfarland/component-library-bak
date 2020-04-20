@@ -16,10 +16,10 @@ jobs:
           NODE_ENV: "production"
     steps:
       - attach_workspace:
-          at: ~/dist
+          at: .
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/dist/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
       - run:
           name: Publish package
           command: npm publish
@@ -29,7 +29,6 @@ jobs:
 
 # BUILD JOB - Restores a cache if there is one, installs dependencies, build the application, set a new cache #
   build:
-    working_directory: ~/dist
     executor:
       name: node/default
     docker:
@@ -71,6 +70,9 @@ jobs:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
               - dist
+      - persist_to_workspace:
+          root: .
+          paths: .
 
 
 ## WORKFLOWS ##

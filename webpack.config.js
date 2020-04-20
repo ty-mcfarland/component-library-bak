@@ -1,9 +1,9 @@
 const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { getIfUtils }  = require('webpack-config-utils')
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const NODE_ENV = process.env.NODE_ENV || 'development'
-const { ifDevelopment, ifProduction } = getIfUtils(NODE_ENV)
+const { ifDevelopment, ifNotTest } = getIfUtils(NODE_ENV)
 
 module.exports = {
   entry: './src/index.ts',
@@ -26,14 +26,42 @@ module.exports = {
           'file-loader',
         ],
       },
+      {
+        test: /\.scss$/,
+        include: /src/,
+        use: [
+          // fallback to style-loader in development
+          ifNotTest( MiniCssExtractPlugin.loader, 'style-loader'),
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
     alias: {
       assets: path.resolve(__dirname, 'src/assets/')
     },
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: [ '.tsx', '.ts', '.js', '.scss' ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),

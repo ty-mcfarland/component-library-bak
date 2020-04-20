@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { getIfUtils }  = require('webpack-config-utils')
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
@@ -28,13 +28,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      ifDev: ifDevelopment(true, false),
-      ifProd: ifProduction(true, false),
-      template: './index.html'
-    })
-  ],
   resolve: {
     alias: {
       assets: path.resolve(__dirname, 'src/assets/')

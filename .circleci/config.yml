@@ -29,7 +29,6 @@ jobs:
 
 # BUILD JOB - Restores a cache if there is one, installs dependencies, build the application, set a new cache #
   build:
-    working_directory: ~/dist
     executor:
       name: node/default
     docker:

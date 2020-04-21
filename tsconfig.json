@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "outDir": "./dist/",
+    "outFile": "./dist/bundle.js",
     "sourceMap": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "amd",
     "target": "es6",
     "jsx": "react",
   },

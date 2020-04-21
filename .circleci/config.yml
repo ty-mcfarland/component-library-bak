@@ -19,7 +19,7 @@ jobs:
           at: .
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: Publish package
           command: npm publish
@@ -53,12 +53,7 @@ jobs:
       # the current branch
       - run:
           name: Building
-          command: |
-              if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                  npm run build:prod
-              else
-                  npm run build
-              fi
+          command: npm run build
 
       # Cache the node_modules folder for the deploy job
       - save_cache:
@@ -87,8 +82,8 @@ workflows:
       - deploy:
           requires:
             - build
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+          # filters:
+          #   tags:
+          #     only: /^v.*/
+          #   branches:
+          #     ignore: /.*/

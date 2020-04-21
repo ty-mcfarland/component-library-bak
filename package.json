@@ -1,7 +1,7 @@
 {
   "name": "tmc-component-library",
-  "version": "2.0.1",
-  "description": "component library",
+  "version": "3.0.0",
+  "description": "Ty McFarland's component library",
   "main": "lib/index.js",
   "types": "lib",
   "scripts": {

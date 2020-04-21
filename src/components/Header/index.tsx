@@ -4,6 +4,6 @@ import * as classnames from 'classnames'
 
 const styles = require('./index.scss')
 
-export const HeaderComponent = () => (
+export const HeaderComponent = (): JSX.Element => (
     <div className={classnames(styles.header)}>header</div>
 )

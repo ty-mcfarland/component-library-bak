@@ -3,11 +3,13 @@
   "version": "1.0.1",
   "description": "component library",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "test",
     "build": "export NODE_ENV=development && rm -rf dist && webpack --mode=development",
     "build:prod": "export NODE_ENV=production && webpack --mode=production",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "tsc": "rm -rf dist && tsc"
   },
   "repository": {
     "type": "git",

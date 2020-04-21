@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "outFile": "./dist/bundle.js",
+    "declarationMap": true,
+    "outDir": "lib",
     "sourceMap": true,
+    "strict": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "module": "amd",
+    "module": "commonjs",
+    "esModuleInterop": true,
     "target": "es6",
     "jsx": "react",
   },
   "exclude": [
     "./node_modules/**/*",
-    "./**/*.spec.tsx"
+    "./**/*.spec.tsx",
+    "./lib"
   ]
 }
